@@ -10,7 +10,12 @@ typedef struct cartao_vacina{
     int data;
 }Cartao_vacina;
 
+typedef union rg_cpf{
+    char rg[12], cpf[12]; 
+}Rg_cpf;
+
 typedef struct pessoa{
     int idade;
     char nome[100];
+    Rg_cpf identidade;
 }Pessoa;
