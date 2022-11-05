@@ -111,6 +111,7 @@ int main_menu(void) {
                       TITULO_OPCAO7, TITULO_OPCAO8);
         op = LeOpcao(OPCAO1, OPCAO1 + N_OPCOES - 1);
         switch(op) {
+            //falta fazer a linkagem das funções do menu.c para vacina.c
             case OPCAO1:
                 inteiro1 = LeInteiro();
                 inteiro2 = LeInteiro();

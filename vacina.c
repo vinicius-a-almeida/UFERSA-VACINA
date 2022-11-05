@@ -1,21 +1,82 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-typedef struct vacina{
+typedef struct vacinaNO VacinaNO;
+typedef struct vacina Vacina;
+
+struct vacina{
+    VacinaNO *prim;
+};
+
+struct vacinaNO{
     char nome[100], lote[100], data[100], validade[100];
+    VacinaNO *prox;
+};
 
-}Vacina;
+Vacina *cria(void);
+void inserir_vacina(Vacina *v);
+void retirar_vacina(Vacina *v);
+void imprime(Vacina *v);
 
-typedef struct cartao_vacina{
-    char nome[100], dose[100];
-    int data;
-}Cartao_vacina;
+int main(void){
 
-typedef union rg_cpf{
-    char rg[12], cpf[12]; 
-}Rg_cpf;
+    Vacina *v = cria(); 
+    inserir_vacina(v);
+    inserir_vacina(v);
+    //retirar_vacina(v);
+    imprime(v);
+    return 0;
+}
 
-typedef struct pessoa{
-    int idade;
+Vacina *cria(void){
+    Vacina *v = (Vacina *) malloc(sizeof(Vacina));
+    v->prim = NULL;
+    return v;
+
+}
+
+void inserir_vacina(Vacina *v){
+    VacinaNO * novo  = (VacinaNO *) malloc(sizeof(VacinaNO));
+    printf("digite o nome da vacina: ");
+    scanf(" %s", novo->nome);
+    printf("digite o lote da vacina: ");
+    scanf(" %s", novo->lote);
+    printf("digite a data da vacina: ");
+    scanf(" %s", novo->data);
+    printf("digite a validade da vacina: ");
+    scanf(" %s", novo->validade);
+    novo->prox = v->prim;
+    v->prim = novo;
+}
+
+void retirar_vacina(Vacina *v){
     char nome[100];
-    Rg_cpf identidade;
-}Pessoa;
+    printf("qual o nome da vacina que deseja retirar? ");
+    scanf(" %s", nome);
+    VacinaNO *ant = NULL;
+    VacinaNO *p = v->prim;
+    while(p != NULL && p->nome != nome){
+        ant = p;
+        p = p->prox;
+
+    }
+    if(p != NULL ){
+        if(ant == NULL){
+            v->prim = p->prox;
+        }
+        else{
+            ant->prox = p->prox;
+        }
+        free(p);
+    }
+}
+
+void imprime(Vacina *v){
+    for(VacinaNO *p = v->prim; p != NULL; p = p->prox){
+        printf("%s\n", p->nome);
+        printf("%s\n", p->lote);
+        printf("%s\n", p->data);
+        printf("%s\n", p->validade);
+    }
+}
