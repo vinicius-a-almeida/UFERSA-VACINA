@@ -98,7 +98,7 @@ void ApresentaMenu(int nItens, int menorOpcao, ...) {
     va_end(argumentos);/* Encerra processamento de argumentos */
 }
 
-int main_menu(void) {
+int main(void) {
     unsigned char op;
     int inteiro1, inteiro2;
     unsigned int saida = 0;
@@ -111,7 +111,6 @@ int main_menu(void) {
                       TITULO_OPCAO7, TITULO_OPCAO8);
         op = LeOpcao(OPCAO1, OPCAO1 + N_OPCOES - 1);
         switch(op) {
-            //falta fazer a linkagem das funções do menu.c para vacina.c
             case OPCAO1:
                 inteiro1 = LeInteiro();
                 inteiro2 = LeInteiro();
