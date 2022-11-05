@@ -1,16 +1,24 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-#define TITULO_OPCAO1 "Soma de dois numeros inteiros"
-#define TITULO_OPCAO2 "Multiplicacao de dois numeros inteiros"
-#define TITULO_OPCAO3 "Divisao de dois numeros inteiros"
-#define TITULO_OPCAO4 "Saida do programa"
+#define TITULO_OPCAO1 "Adicionar vacina"
+#define TITULO_OPCAO2 "Remover vacina"
+#define TITULO_OPCAO3 "Listar vacina cadastrada"
+#define TITULO_OPCAO4 "Buscar vacinas"
+#define TITULO_OPCAO5 "Aplicaçao de vacina em uma pessoa"
+#define TITULO_OPCAO6 "Editar vacina cadastrada"
+#define TITULO_OPCAO7 "Consultar quantitativo de pessoas vacinadas com uma dada vacina"
+#define TITULO_OPCAO8 "Sair"
 
 #define N_OPCOES 4
 #define OPCAO1 '1'
 #define OPCAO2 '2'
 #define OPCAO3 '3'
 #define OPCAO4 '4'
+#define OPCAO5 '5'
+#define OPCAO6 '6'
+#define OPCAO7 '7'
+#define OPCAO8 '8'
 
 /****
 * Função: LimpaBuffer()
