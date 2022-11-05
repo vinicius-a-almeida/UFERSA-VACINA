@@ -10,7 +10,7 @@
 #define TITULO_OPCAO7 "Consultar quantitativo de pessoas vacinadas com uma dada vacina"
 #define TITULO_OPCAO8 "Sair"
 
-#define N_OPCOES 4
+#define N_OPCOES 8
 #define OPCAO1 '1'
 #define OPCAO2 '2'
 #define OPCAO3 '3'
@@ -106,7 +106,9 @@ int main_menu(void) {
     do {
         ApresentaMenu(N_OPCOES, OPCAO1,
                       TITULO_OPCAO1, TITULO_OPCAO2,
-                      TITULO_OPCAO3, TITULO_OPCAO4);
+                      TITULO_OPCAO3, TITULO_OPCAO4,
+                      TITULO_OPCAO5, TITULO_OPCAO6,
+                      TITULO_OPCAO7, TITULO_OPCAO8);
         op = LeOpcao(OPCAO1, OPCAO1 + N_OPCOES - 1);
         switch(op) {
             case OPCAO1:
@@ -130,7 +132,7 @@ int main_menu(void) {
                        inteiro1 / inteiro2);
                 break;
 
-            case OPCAO4:
+            case OPCAO8:
                 saida = 1;
                 printf("Obrigado por usar este programa.");
                 break;
