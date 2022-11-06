@@ -51,12 +51,34 @@ void inserir_vacina(Vacina *v){
 }
 
 void retirar_vacina(Vacina *v){
-    char nome[100];
+    char nome[100], lote[100], data[100], validade[100];
     printf("qual o nome da vacina que deseja retirar? ");
     scanf(" %s", nome);
+    printf("qual o lote que deseja retirar? ");
+    scanf(" %s", lote);
+    printf("qual a data da vacina que deseja retirar? ");
+    scanf(" %s", data);
+    printf("qual a validade da vacina que deseja retirar? ");
+    scanf(" %s", validade);
+    
     VacinaNO *ant = NULL;
     VacinaNO *p = v->prim;
     while(p != NULL && p->nome != nome){
+        ant = p;
+        p = p->prox;
+
+    }
+    while(p != NULL && p->lote != nome){
+        ant = p;
+        p = p->prox;
+
+    }
+    while(p != NULL && p->data != nome){
+        ant = p;
+        p = p->prox;
+
+    }
+    while(p != NULL && p->validade != nome){
         ant = p;
         p = p->prox;
 
