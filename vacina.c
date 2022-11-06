@@ -24,7 +24,7 @@ int main(void){
     Vacina *v = cria(); 
     inserir_vacina(v);
     inserir_vacina(v);
-    //retirar_vacina(v);
+    retirar_vacina(v);
     imprime(v);
     return 0;
 }
@@ -68,17 +68,17 @@ void retirar_vacina(Vacina *v){
         p = p->prox;
 
     }
-    while(p != NULL && p->lote != nome){
+    while(p != NULL && p->lote != lote){
         ant = p;
         p = p->prox;
 
     }
-    while(p != NULL && p->data != nome){
+    while(p != NULL && p->data != data){
         ant = p;
         p = p->prox;
 
     }
-    while(p != NULL && p->validade != nome){
+    while(p != NULL && p->validade != validade){
         ant = p;
         p = p->prox;
 
