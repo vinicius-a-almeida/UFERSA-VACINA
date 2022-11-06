@@ -56,34 +56,14 @@ void retirar_vacina(Vacina *v){
     scanf(" %s", nome);
     printf("qual o lote que deseja retirar? ");
     scanf(" %s", lote);
-    printf("qual a data da vacina que deseja retirar? ");
-    scanf(" %s", data);
-    printf("qual a validade da vacina que deseja retirar? ");
-    scanf(" %s", validade);
-    
     VacinaNO *ant = NULL;
     VacinaNO *p = v->prim;
-    while(p != NULL && p->nome != nome){
+    while(p != NULL && strcmp(p->nome, nome)!=0  && strcmp(p->lote, lote)!=0){
         ant = p;
         p = p->prox;
 
     }
-    while(p != NULL && p->lote != lote){
-        ant = p;
-        p = p->prox;
-
-    }
-    while(p != NULL && p->data != data){
-        ant = p;
-        p = p->prox;
-
-    }
-    while(p != NULL && p->validade != validade){
-        ant = p;
-        p = p->prox;
-
-    }
-    if(p != NULL ){
+    if(p != NULL){
         if(ant == NULL){
             v->prim = p->prox;
         }
