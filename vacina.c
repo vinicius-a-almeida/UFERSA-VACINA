@@ -14,10 +14,11 @@ struct vacinaNO{
     VacinaNO *prox;
 };
 
-Vacina *cria(void);
+Vacina *cria();
 void inserir_vacina(Vacina *v);
 void retirar_vacina(Vacina *v);
-void imprime(Vacina *v);
+void listar_vacina(Vacina *v);
+VacinaNO *busca(Vacina *v);
 
 int main(void){
 
@@ -25,7 +26,9 @@ int main(void){
     inserir_vacina(v);
     inserir_vacina(v);
     retirar_vacina(v);
-    imprime(v);
+    listar_vacina(v);
+    busca(v) ? printf("achou") : printf("não achou");
+
     return 0;
 }
 
@@ -74,11 +77,27 @@ void retirar_vacina(Vacina *v){
     }
 }
 
-void imprime(Vacina *v){
+void listar_vacina(Vacina *v){
     for(VacinaNO *p = v->prim; p != NULL; p = p->prox){
         printf("%s\n", p->nome);
         printf("%s\n", p->lote);
         printf("%s\n", p->data);
         printf("%s\n", p->validade);
     }
+}
+
+VacinaNO *busca(Vacina *v){
+    //ele só funciona quando tem o elemento, quando ele não acha, da loop infinito
+    char nome[100], lote[100];
+    printf("digite o nome da vacina que deseja buscar: ");
+    scanf(" %s", nome);
+    printf("digite o lote da vacina que deseja buscar: ");
+    scanf(" %s", lote);
+    VacinaNO *p = v->prim;
+    for(p; p != NULL; p->prox){
+        if(strcmp(p->nome, nome)==0 && strcmp(p->lote, lote)==0){
+            return p;
+        }
+    }
+    return NULL;
 }
