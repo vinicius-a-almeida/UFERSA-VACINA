@@ -88,6 +88,7 @@ void listar_vacina(Vacina *v){
 
 VacinaNO *busca(Vacina *v){
     //ele só funciona quando tem o elemento, quando ele não acha, da loop infinito
+    //eu acho que ele tá fazendo tipo um loop infinito, ao invés de percorrer uma vez a lista
     char nome[100], lote[100];
     printf("digite o nome da vacina que deseja buscar: ");
     scanf(" %s", nome);
