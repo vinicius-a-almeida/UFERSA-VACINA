@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include "menu.h"
 
 #define TITULO_OPCAO1 "Adicionar vacina"
 #define TITULO_OPCAO2 "Remover vacina"

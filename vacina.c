@@ -14,20 +14,64 @@ struct vacinaNO{
     VacinaNO *prox;
 };
 
+void menu();
+
 Vacina *cria();
+
 void inserir_vacina(Vacina *v);
+
 void retirar_vacina(Vacina *v);
+
 void listar_vacina(Vacina *v);
+
 VacinaNO *busca(Vacina *v);
 
+
 int main(void){
+    printf("\\/ Insira o Numero Referente a Rua Opcao \\/ \n\n");
 
     Vacina *v = cria(); 
-    inserir_vacina(v);
-    inserir_vacina(v);
-    retirar_vacina(v);
-    listar_vacina(v);
-    busca(v) ? printf("achou") : printf("nao achou");
+    int opcao;
+	scanf("%d", &opcao);
+	
+	do {
+        opcao_ligacao();
+        switch(op){
+        	//op == 1
+            case 1:
+                inserir_vacina(v);
+            break;
+        
+			//op == 2	
+            case 2:
+				retirar_vacina(v);
+            break;
+        
+			//op == 3
+            case 3:
+                listar_vacina(v);
+            break;
+        
+        	//op == 4
+			case 4:
+                busca(v) ? printf("achou") : printf("nao achou");
+			break;
+		
+		
+            //restante 5, 6, 7//
+            
+            
+        	//op == 8
+            case 8:;
+                printf("Obrigado por usar este programa.");
+                exit(1);
+				return(0); 
+            break;
+
+            default:
+                printf("opacao invalida! (error 404)\n\n");
+        }
+    } while(); 
 
     return 0;
 }
@@ -100,4 +144,17 @@ VacinaNO *busca(Vacina *v){
         }
     }
     return NULL;
+}
+
+void menu(){
+
+	printf("[1] para -> Adicionar vacina\n");
+	printf("[2] para -> Remover vacina\n");
+	printf("[3] para -> Listar vacina cadastrada\n");
+	printf("[4] para -> Buscar vacinas\n");
+	printf("[5] para -> Aplicaçao de vacina em uma pessoa\n");
+	printf("[6] para -> Editar vacina cadastrada\n");
+	printf("[7] para -> Consultar quantitativo de pessoas vacinadas com uma dada vacina\n");
+	printf("[8] para -> Sair\n\n");
+	
 }
