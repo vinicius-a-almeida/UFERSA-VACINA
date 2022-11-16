@@ -4,8 +4,8 @@ typedef struct cartao_vacina Cartao_Vacina;
 typedef union cpf_rg CPF_RG;
 typedef struct cartao_vacina_NO C_V_NO;
 
-Vacina *cria();
-Cartao_Vacina *cria();
+Vacina *cria_v();
+Cartao_Vacina *cria_c_v();
 
 void inserir_vacina(Vacina *v);
 void retirar_vacina(Vacina *v);

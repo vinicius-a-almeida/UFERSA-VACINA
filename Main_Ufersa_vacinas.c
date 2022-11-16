@@ -18,8 +18,8 @@ void menu(){
 int main(void){
 	int op;
 
-    Vacina *v = cria(); 
-	Cartao_Vacina *c_v = cria();
+    Vacina *v = cria_v(); 
+	Cartao_Vacina *c_v = cria_c_v();
     do{
         menu();
 		printf("\nDigite sua opcao: ");
