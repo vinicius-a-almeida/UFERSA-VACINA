@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Ufersa.vacinas.h"
+#include "vacina.h"
 
 
 struct vacina{
@@ -68,7 +68,7 @@ Cartao_Vacina *cria_c_v(){
     
 }
 
-void inserir_vacina(Vacina *v){
+void inserir_vacina(Vacina *v, FILE *arq){
 	
     VacinaNO * novo  = (VacinaNO *) malloc(sizeof(VacinaNO));
     
@@ -89,7 +89,7 @@ void inserir_vacina(Vacina *v){
     
 }
 
-void retirar_vacina(Vacina *v){
+void retirar_vacina(Vacina *v, FILE *arq){
 	
     char nome[100], lote[100], data[100], validade[100];
     
@@ -119,7 +119,7 @@ void retirar_vacina(Vacina *v){
     
 }
 
-void listar_vacina(Vacina *v){
+void listar_vacina(Vacina *v, FILE *arq){
 
     VacinaNO *p;
     
@@ -135,7 +135,7 @@ void listar_vacina(Vacina *v){
     
 }
 
-VacinaNO *busca(Vacina *v){
+VacinaNO *busca(Vacina *v, FILE *arq){
 	
     char nome[100], lote[100];
     
@@ -159,7 +159,7 @@ VacinaNO *busca(Vacina *v){
 }
 
 
-void aplicar_vacina_pessoa(Cartao_Vacina *c_v){
+void aplicar_vacina_pessoa(Cartao_Vacina *c_v, FILE *arq){
 	
 	int opcao;
 	

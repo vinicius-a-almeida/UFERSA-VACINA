@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Ufersa.vacinas.h"
+#include "vacina.h"
 
 void menu(){
 
@@ -18,6 +18,11 @@ void menu(){
 int main(void){
 	int op;
 
+	FILE *arq = fopen("entrada.txt", "rw");
+	if(arq == NULL){
+		print("não foi possivel criar o arquivo");
+		exit(1);
+	}
     Vacina *v = cria_v(); 
 	Cartao_Vacina *c_v = cria_c_v();
     do{
@@ -37,15 +42,15 @@ int main(void){
 		}
         
     	if(op == 1){
-          inserir_vacina(v);	
+          inserir_vacina(v, arq);	
 		}
 		
 		else if(op == 2){
- 			retirar_vacina(v);
+ 			retirar_vacina(v, arq);
 		}		
 
 		else if(op == 3){
-			listar_vacina(v);
+			listar_vacina(v, arq);
 		}
 		else if(op == 4){
             busca(v) ? printf("achou") : printf("nao achou");
@@ -54,7 +59,7 @@ int main(void){
    	 	
          
 		if(op == 5){
-			aplicar_vacina_pessoa(c_v);
+			aplicar_vacina_pessoa(c_v, arq);
 		}
 		
 		/*
