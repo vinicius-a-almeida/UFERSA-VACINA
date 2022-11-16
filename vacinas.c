@@ -234,12 +234,18 @@ void editar_vacinas_cadastradas(Vacina *v){
     
     printf("digite o lote da vacina que deseja editar >: ");
     scanf(" %s", lote);
+
+    ///pesquisa aqui////
 	   
 	for(;aux < 1 || aux > 5;){
-		
-		void menu_de_escolha()
-		
-	    scanf("%d", &aux);
+
+		printf("\\/ informe qual dessesas opcoes a baixo deseja editar /\\");
+	    printf("\n\ndigite o numero referente a sua escolha!\n\n");
+
+		void menu_de_escolha();
+	    
+        scanf("%d", &aux);
+
 	    if(aux == 1){
 			printf("opcao editar do nome\n");
 			scanf(" %s", p->nome);
@@ -290,8 +296,6 @@ void menu_principal(){
 
 void menu_de_escolha(){
 	
-	printf("\\/ informe qual dessesas opcoes a baixo deseja editar /\\");
-	printf("\n\ndigite o numero referente a sua escolha!\n\n");
 	printf("[1] -> nome \n");
 	printf("[2] -> lote \n");
 	printf("[3] -> data \n");
