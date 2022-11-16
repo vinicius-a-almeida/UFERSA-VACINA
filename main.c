@@ -2,29 +2,19 @@
 #include <stdlib.h>
 #include "vacina.h"
 
-void menu(){
-
-	printf("[1] para -> Adicionar vacina\n");
-	printf("[2] para -> Remover vacina\n");
-	printf("[3] para -> Listar vacina cadastrada\n");
-	printf("[4] para -> Buscar vacinas\n");
-	printf("[5] para -> Aplicaçao de vacina em uma pessoa\n");
-	printf("[6] para -> Editar vacina cadastrada\n");
-	printf("[7] para -> Consultar quantitativo de pessoas vacinadas com uma dada vacina\n");
-	printf("[8] para -> Sair\n\n");
-
-}
 
 int main(void){
 	int op;
-
+	menu_principal(); 
 	FILE *arq = fopen("entrada.txt", "rw");
 	if(arq == NULL){
 		print("não foi possivel criar o arquivo");
 		exit(1);
 	}
+
     Vacina *v = cria_v(); 
 	Cartao_Vacina *c_v = cria_c_v();
+	
     do{
         menu();
 		printf("\nDigite sua opcao: ");

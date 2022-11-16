@@ -208,9 +208,98 @@ void aplicar_vacina_pessoa(Cartao_Vacina *c_v, FILE *arq){
     
 }
 
-void editar_vacinas_cadastradas(){
+void editar_vacinas_cadastradas(Vacina *v){
+	
+
+/*
+    VacinaNO *p;
+    p = v->prim;
+    
+    for(p; p != NULL; p = p->prox){
+        if(strcmp(p->nome, nome)==0 && strcmp(p->lote, lote)==0){
+            return p;
+        }
+    }
+    
+*/
+    
+    
+    char nome[100], lote[100];
+    int aux;
+    
+    VacinaNO *p;
+    
+    printf("digite o nome da vacina que deseja editar >: ");
+    scanf(" %s", nome);
+    
+    printf("digite o lote da vacina que deseja editar >: ");
+    scanf(" %s", lote);
+	   
+	for(;aux < 1 || aux > 5;){
+		
+		void menu_de_escolha()
+		
+	    scanf("%d", &aux);
+	    if(aux == 1){
+			printf("opcao editar do nome\n");
+			scanf(" %s", p->nome);
+		}
+		else if(aux == 2){
+	        printf("opcao editar do lote\n");
+			scanf(" %s", p->lote);
+		}
+		else if(aux == 3){
+	       	printf("opcao editar do date\n");
+			scanf(" %s", p->date);
+		}
+		else if(aux == 4){
+			printf("opcao editar do validade\n");
+			scanf(" %s", p->validade);
+		}
+		else if(aux == 5){
+			printf("opcao editar do nome\n");
+			scanf(" %s", p->nome);
+			printf("opcao editar do lote\n");
+			scanf(" %s", p->lote);
+			printf("opcao editar do date\n");
+			scanf(" %s", p->date);
+	        printf("opcao editar do validade\n");
+			scanf(" %s", p->validade);
+		}
+		else{
+			printf("\n\nopcao invalida :(\n\n");
+		}
+	}
+ return (NULL);
+}
+
+
+//menus//
+void menu_principal(){
+
+	printf("[1] para -> Adicionar vacina\n");
+	printf("[2] para -> Remover vacina\n");
+	printf("[3] para -> Listar vacina cadastrada\n");
+	printf("[4] para -> Buscar vacinas\n");
+	printf("[5] para -> Aplicaçao de vacina em uma pessoa\n");
+	printf("[6] para -> Editar vacina cadastrada\n");
+	printf("[7] para -> Consultar quantitativo de pessoas vacinadas com uma dada vacina\n");
+	printf("[8] para -> Sair\n\n");
+
+}
+
+void menu_de_escolha(){
+	
+	printf("\\/ informe qual dessesas opcoes a baixo deseja editar /\\");
+	printf("\n\ndigite o numero referente a sua escolha!\n\n");
+	printf("[1] -> nome \n");
+	printf("[2] -> lote \n");
+	printf("[3] -> data \n");
+	printf("[4] -> validade \n");
+	printf("[5] -> todas as opcao a cima\n>: ");
 	
 }
+
 
 
 

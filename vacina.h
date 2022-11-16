@@ -15,3 +15,8 @@ void retirar_vacina(Vacina *v, FILE *arq);
 void listar_vacina(Vacina *v, FILE *arq);
 void aplicar_vacina_pessoa(Cartao_Vacina *v, FILE *arq);
 VacinaNO *busca(Vacina *v);
+
+
+//menus//
+void menu_principal();
+void menu_de_escolha();

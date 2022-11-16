@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "menu.h": "c",
+        "vacina.h": "c",
+        "stdlib.h": "c",
+        "string.h": "c"
+    }
+}
