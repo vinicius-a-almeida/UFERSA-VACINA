@@ -19,7 +19,7 @@ int main(void){
 	int op;
 
     Vacina *v = cria(); 
-
+	Cartao_Vacina *c_v = cria();
     do{
         menu();
 		printf("\nDigite sua opcao: ");
@@ -51,21 +51,22 @@ int main(void){
             busca(v) ? printf("achou") : printf("nao achou");
 				return 0;
 		}
-   	   		
-/*          
+   	 	
+         
 		if(op == 5){
-
+			aplicar_vacina_pessoa(c_v);
 		}
 		
+		/*
 		if(op == 6){
-
+			editar_vacinas_cadastradas(c_v);
 		}
 		
 		if(op == 7){
-
+			consualtar_pessoas_vacinadas(c_v);
 		}
-   	   	
-*/
+		*/
+
 		else if(op == 8){
 			printf("Obrigado por usar este programa.\n");
 		return(0);
