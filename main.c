@@ -74,6 +74,7 @@ int main(void){
 
 		else if(op == 8){
 			printf("Obrigado por usar este programa.\n");
+			fclose(arq);
 		return(0);
 		}
 			
