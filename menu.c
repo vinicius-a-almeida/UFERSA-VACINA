@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "c_menu.h"
-#include "c_vacina.h" 
+#include "vacina.h" 
 
 void menu(){
 
