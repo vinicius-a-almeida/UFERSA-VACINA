@@ -4,11 +4,12 @@
 
 void menu_principal();
 void cabeca();
-
+void jaka();
 int main(void){
 
 	cabeca();
-	system("pause");
+	jaka();
+	getchar();
 	int op;
 
     Vacina *v = cria_v(); 
@@ -16,7 +17,7 @@ int main(void){
 	system("color 07");
 
     while(1){
-		system("cls || clear");
+		//system("cls || clear");
         menu_principal();
 		printf("\nDigite sua opcao: ");
 		scanf("%d", &op);
@@ -44,28 +45,31 @@ int main(void){
 
 		else if(op == 3){
 			listar_vacina(v);
+			getchar();
 		}
 		else if(op == 4){
             busca(v) ? printf("\n\nachou\n\n") : printf("\n\nnao achou\n\n");	
+			getchar();
 		}
          
 		if(op == 5){
 			aplicar_vacina_pessoa(c_v);
+			getchar();
 		}
 		
 		
 		if(op == 6){
 			editar_vacinas_cadastradas(v);
+			getchar();
 		}
 		
 		if(op == 7){
 			consualtar_pessoas_vacinadas(c_v);
+			getchar();
 		}
 		
 		else if(op == 8){
 			printf("Obrigado por usar este programa.\n");
-			//libera não tá funcionando
-			//libera_vacina(v);
 			return (0);
 		}
 			
@@ -98,9 +102,28 @@ void cabeca(){
 }
 
 
-/*
+
 void jaka(){
-
-
-}
-*/
+	    printf("                     .--.  .--.                               \n");
+        printf("                    /    \\/    \\                            \n");
+        printf("                   | .-.  .-.   \\                            \n");
+        printf("                   |/_  |/_  |   \\                           \n");
+        printf("                   || `\\|| `\\|    `----.                    \n");
+        printf("                   |\\0_/ \\0_/    --,    \\                  \n");
+        printf(".--MMMMM-.       /              (` \\     `-.                \n");
+        printf("/          \\-----'-.              \\          \\             \n");
+        printf("\\  () ()                         /`\\          \\            \n");
+        printf("|                         .___.-'   |          \\             \n");
+        printf("\\                        /` \\|      /         \\            \n");
+        printf(" `-.___             ___.' .-.`.---.|             \\           \n");
+        printf("    \\| ``-..___,.-'`\\| / /   /     |              `\\       \n");
+        printf("     `      \\|      ,`/ /   /   ,  /                         \n");
+        printf("             `      |\\ /   /    |\\/                         \n");
+        printf("              ,   .'`-;   '     \\/                           \n");
+        printf("         ,    |\\-'  .'   ,   .-'`                            \n");
+        printf("      .-|\\--;`` .-'     |\\.'                                \n");
+        printf("      ( ` '-.|\\ (___,.--'`'                                  \n");
+        printf("     `-.    ` `          _.--' \\                             \n");
+        printf("          `.          _.-'`-.\\\\                             \n");
+        printf("            `''---''``       `. \\                            \n");
+ }

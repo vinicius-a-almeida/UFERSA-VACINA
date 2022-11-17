@@ -122,8 +122,8 @@ void retirar_vacina(Vacina *v){
 
 void listar_vacina(Vacina *v){
     
-    system("cls || clear");
-
+    //system("cls || clear");
+    getchar();
     VacinaNO *p;
     
     for(p = v->prim; p != NULL; p = p->prox){
@@ -139,7 +139,7 @@ void listar_vacina(Vacina *v){
 }
 
 VacinaNO *busca(Vacina *v){
-	system("cls || clear");
+	//system("cls || clear");
     char nome[100], lote[100];
     
     printf("digite o nome da vacina que deseja buscar: ");
@@ -216,7 +216,7 @@ void aplicar_vacina_pessoa(Cartao_Vacina *c_v){
     c_v->prim_pessoa = cartao_novo;
 
 }
-//
+
 void editar_vacinas_cadastradas(Vacina *v){
     system("cls || clear");
     VacinaNO *cont, *pos;
@@ -313,18 +313,9 @@ void consualtar_pessoas_vacinadas(Cartao_Vacina *c_v){
     
     printf("quantidade de pessoas vacinadas com a: %d\n", contador_Pessoas_v);
     system("pause");
+    getchar();
 }
 
-
-/*void libera_vacina(Vacina *v){
-    Vacina *p = v;
-    Vacina *t;
-    while(p != NULL){
-        t = p->prim;
-        free(p);
-        p = t;
-    }
-}*/
 
 void menu_de_escolha(){
 
