@@ -21,7 +21,7 @@ int main(void){
     Vacina *v = cria_v(); 
 	Cartao_Vacina *c_v = cria_c_v();
 	
-    do{
+    while(1){
         menu_principal();
 		printf("\nDigite sua opcao: ");
 		scanf("%d", &op);
@@ -59,23 +59,19 @@ int main(void){
 		
 		
 		if(op == 6){
-			editar_vacinas_cadastradas(c_v);
+			editar_vacinas_cadastradas(v);
 		}
 		
 		if(op == 7){
 			consualtar_pessoas_vacinadas(c_v);
 		}
 		
-
 		else if(op == 8){
 			printf("Obrigado por usar este programa.\n");
-		return(0);
+		 return(0);
+		 exit(1);
+		 system("pause");
 		}
 			
-    	else{
-	   		printf("Este programa possui um bug.");
-		return 1;
-	    }	
-    }while(op != 8);
- return(0);
+	}
 }

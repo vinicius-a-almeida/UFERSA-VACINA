@@ -86,12 +86,11 @@ void inserir_vacina(Vacina *v){
     
     novo->prox = v->prim;
     v->prim = novo;
-    main();
 }
 
 void retirar_vacina(Vacina *v){
 	
-    char nome[100], lote[100], data[100], validade[100];
+    char nome[100], lote[100];
     
     printf("qual o nome da vacina que deseja retirar? ");
     scanf(" %s", nome);
@@ -116,7 +115,7 @@ void retirar_vacina(Vacina *v){
         }
         free(p);
     }
-    main();
+
 }
 
 void listar_vacina(Vacina *v){
@@ -132,7 +131,7 @@ void listar_vacina(Vacina *v){
         
         printf("%s\n", p->validade);
     }
-    main();
+
 }
 
 VacinaNO *busca(Vacina *v){
@@ -155,7 +154,7 @@ VacinaNO *busca(Vacina *v){
     }
     
  return (NULL);
- main();
+
 }
 
 
@@ -205,7 +204,7 @@ void aplicar_vacina_pessoa(Cartao_Vacina *c_v){
     
     cartao_novo->prox_pessoa = c_v->prim_pessoa;
     c_v->prim_pessoa = cartao_novo;
-    main();
+
 }
 //
 void editar_vacinas_cadastradas(Vacina *v){
@@ -220,13 +219,12 @@ void editar_vacinas_cadastradas(Vacina *v){
     printf("digite o lote da vacina que deseja editar >: ");
     scanf(" %s", lote);
     
-    for(; cont != NULL; cont = cont->prox){
+    for(cont; cont != NULL; cont = cont->prox){
         if(strcmp(cont->nome, nome)==0 && strcmp(cont->lote, lote)==0){
             pos = cont;
         }
     }
     
-	   
 	for(;aux < 1 || aux > 5;){
 
 		printf("\\/ informe qual dessesas opcoes a baixo deseja editar /\\");
@@ -266,7 +264,6 @@ void editar_vacinas_cadastradas(Vacina *v){
 			printf("\n\nopcao invalida :(\n\n");
 		}
 	}
-	main();
 }
 
 
