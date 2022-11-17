@@ -15,6 +15,7 @@ void editar_vacinas_cadastradas(Vacina *v);
 void aplicar_vacina_pessoa(Cartao_Vacina *v);
 void consualtar_pessoas_vacinadas(Cartao_Vacina *c_v);
 VacinaNO *busca(Vacina *v);
+//void libera_vacina(Vacina *v);
 
 
 //menus//

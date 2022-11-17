@@ -23,8 +23,8 @@ struct vacinaNO{
 
 union cpf_rg{
 	
-		int CPF;
-		int RG;
+		char CPF[11];
+		char RG[7];
 		
 };
 
@@ -38,7 +38,7 @@ struct cartao_vacina_NO{
 	
     int dose;
 	int idade_pessoa;
-	int data_aplicacao;
+	char data_aplicacao[12];
 	char nome_pessoa[100];
 	char nome_vacina[100];
 	
@@ -69,6 +69,7 @@ Cartao_Vacina *cria_c_v(){
 }
 
 void inserir_vacina(Vacina *v){
+    system("cls || clear");
 	
     VacinaNO * novo  = (VacinaNO *) malloc(sizeof(VacinaNO));
     
@@ -89,6 +90,7 @@ void inserir_vacina(Vacina *v){
 }
 
 void retirar_vacina(Vacina *v){
+    system("cls || clear");
 	
     char nome[100], lote[100];
     
@@ -119,6 +121,8 @@ void retirar_vacina(Vacina *v){
 }
 
 void listar_vacina(Vacina *v){
+    
+    system("cls || clear");
 
     VacinaNO *p;
     
@@ -129,13 +133,13 @@ void listar_vacina(Vacina *v){
         
         printf("%s\n", p->data);
         
-        printf("%s\n", p->validade);
+        printf("%s\n\n", p->validade);
     }
 
 }
 
 VacinaNO *busca(Vacina *v){
-	
+	system("cls || clear");
     char nome[100], lote[100];
     
     printf("digite o nome da vacina que deseja buscar: ");
@@ -153,13 +157,12 @@ VacinaNO *busca(Vacina *v){
         }
     }
     
- return (NULL);
-
+  return (NULL);
 }
 
 
 void aplicar_vacina_pessoa(Cartao_Vacina *c_v){
-	
+	system("cls || clear");
 	int opcao;
 	
     C_V_NO * cartao_novo  = (C_V_NO *) malloc(sizeof(C_V_NO));
@@ -167,48 +170,55 @@ void aplicar_vacina_pessoa(Cartao_Vacina *c_v){
     //dados pessoais
     printf("digite o nome do pessoa: ");
     scanf("%s", cartao_novo->nome_pessoa);
-    
+    system("cls || clear");
     printf("qual documento deseja informar?\n");
     printf("[1] para CPF\n");
     printf("[2] para RG\n");
-    
     printf("insira a opcao desejada >:");
-    scanf("%d", &opcao);
-    
+    do{
+        scanf("%d", &opcao);
+        if(opcao > 2 || opcao < 1){
+            system("color 04");
+            printf("opcao invalida\n\n:(\n\n");
+            printf("++ digite um valor entre 1 e 2 ++\n\n");
+            printf("insira a opcao desejada >:");
+        }
+    }while(opcao > 2 || opcao < 1);
+    system("color 07");
     switch(opcao){
 		case 1:
 			printf("informe o CPF \n>:");
-			scanf("%d", cartao_novo->doc);
+			scanf(" %s", cartao_novo->doc.CPF);
+            system("cls || clear");
 		break;
 		
 		case 2:
 			printf("informe o RG \n>:");
-			scanf("%d", cartao_novo->doc);
+			scanf(" %s", cartao_novo->doc.RG);
+            system("cls || clear");
 		break;
 		
-		default:
-		break;
 	}
 	
     printf("digite a idade da pessoa: ");
-    scanf("%d", cartao_novo->idade_pessoa);
+    scanf("%d", &cartao_novo->idade_pessoa);
     
     printf("digite o nome da vacina: ");
-    scanf("%s", cartao_novo->nome_vacina); 
+    scanf(" %s", cartao_novo->nome_vacina); 
 	   
     printf("digite a dose da vacina: ");
-    scanf("%d", cartao_novo->dose);
+    scanf("%d", &cartao_novo->dose);
     
     printf("digite a data de aplicacao da vacina: ");
-    scanf("%d", cartao_novo->data_aplicacao);
-    
+    scanf(" %s", cartao_novo->data_aplicacao);
+    system("cls || clear");
     cartao_novo->prox_pessoa = c_v->prim_pessoa;
     c_v->prim_pessoa = cartao_novo;
 
 }
 //
 void editar_vacinas_cadastradas(Vacina *v){
-
+    system("cls || clear");
     VacinaNO *cont, *pos;
     cont = v->prim;
     char nome[100], lote[100];
@@ -218,39 +228,60 @@ void editar_vacinas_cadastradas(Vacina *v){
     
     printf("digite o lote da vacina que deseja editar >: ");
     scanf(" %s", lote);
-    
+    system("cls || clear");
     for(cont; cont != NULL; cont = cont->prox){
         if(strcmp(cont->nome, nome)==0 && strcmp(cont->lote, lote)==0){
             pos = cont;
         }
     }
+    system("color 07");
+    printf("\\/ informe qual dessas opcoes a baixo deseja editar /\\\n");
+    menu_de_escolha();
+    scanf("%d", &aux);
     
-	for(;aux < 1 || aux > 5;){
-
-		printf("\\/ informe qual dessesas opcoes a baixo deseja editar /\\");
+	do{
+        system("color 04");
+        printf("\n\nopcao invalida :(\n\n");
 	    printf("\n\ndigite o numero referente a sua escolha!\n\n");
-
-		void menu_de_escolha();
-	    
+        menu_de_escolha();
         scanf("%d", &aux);
-
+    }while(aux < 1 || aux > 5);
+        system("color 07");
 	    if(aux == 1){
 			printf("opcao editar nome\n");
+            printf("\\// ATENCAO \\//");
+            printf("a troca do nome sera irreversivel...\n\n");
 			scanf(" %s", pos->nome);
+            system("cls || clear");
 		}
+        
 		else if(aux == 2){
 	        printf("opcao editar lote\n");
+            printf("\\// ATENCAO \\//");
+            printf("a troca do nome sera irreversivel...\n\n");
 			scanf(" %s", pos->lote);
+            system("cls || clear");
 		}
+
 		else if(aux == 3){
 	       	printf("opcao editar data\n");
-			scanf(" %s", pos->data);
+            printf("\\// ATENCAO \\//");
+            printf("a troca do nome sera irreversivel...\n\n");
+			scanf(" %s", pos->nome);
+            system("cls || clear");
 		}
+        
 		else if(aux == 4){
 			printf("opcao editar validade\n");
+            printf("\\// ATENCAO \\//");
+            printf("a troca do nome sera irreversivel...\n\n");
 			scanf(" %s", pos->validade);
+            system("cls || clear");
 		}
-		else if(aux == 5){
+        
+		if(aux == 5){
+            printf("\\// ATENCAO \\//");
+            printf("a troca do nome sera irreversivel...\n\n");
 			printf("opcao editar nome\n");
 			scanf(" %s", pos->nome);
 			printf("opcao editar lote\n");
@@ -259,17 +290,14 @@ void editar_vacinas_cadastradas(Vacina *v){
 			scanf(" %s", pos->data);
 	        printf("opcao editar validade\n");
 			scanf(" %s", pos->validade);
+            system("cls || clear");
 		}
-		else{
-			printf("\n\nopcao invalida :(\n\n");
-		}
-	}
 }
 
 
 void consualtar_pessoas_vacinadas(Cartao_Vacina *c_v){
     char nome[100];
-    int contador_Pessoas_v;
+    int contador_Pessoas_v = 0;
     
     printf("digite o nome da vacina que deseja buscar: ");
     scanf(" %s", nome);
@@ -277,21 +305,30 @@ void consualtar_pessoas_vacinadas(Cartao_Vacina *c_v){
      C_V_NO *p;
      p = c_v->prim_pessoa;
     
-    for(; p != NULL; p = p->prox_pessoa){
-        if(strcmp(p->nome_pessoa, nome)==0){
+    for(p; p != NULL; p = p->prox_pessoa){
+        if(strcmp(p->nome_vacina, nome)==0){
             contador_Pessoas_v++;
         }
     }
     
-    printf("quantidade de pessoas vacinadas com a %s: %d", nome, contador_Pessoas_v);
-    main();
+    printf("quantidade de pessoas vacinadas com a: %d\n", contador_Pessoas_v);
+    system("pause");
 }
 
 
-//menus//
+/*void libera_vacina(Vacina *v){
+    Vacina *p = v;
+    Vacina *t;
+    while(p != NULL){
+        t = p->prim;
+        free(p);
+        p = t;
+    }
+}*/
 
 void menu_de_escolha(){
-	
+
+	system("cls || clear");
 	printf("[1] -> nome \n");
 	printf("[2] -> lote \n");
 	printf("[3] -> data \n");
@@ -299,12 +336,3 @@ void menu_de_escolha(){
 	printf("[5] -> todas as opcao a cima\n>: ");
 	
 }
-
-
-
-
-
-
-
-
-
