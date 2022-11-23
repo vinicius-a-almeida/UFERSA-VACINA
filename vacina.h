@@ -1,4 +1,3 @@
-
 typedef struct vacinaNO VacinaNO;
 typedef struct vacina Vacina;
 typedef struct cartao_vacina Cartao_Vacina;

@@ -16,6 +16,22 @@ int main(void){
 	Cartao_Vacina *c_v = cria_c_v();
 	system("color 07");
 
+	FILE *arq;
+		arq = fopen("entrada.txt", "r");
+        if(arq == NULL){
+            printf("caregando banco de dados\n");
+            arq = fopen("entrada.txt", "w");
+            fclose(arq);
+        }
+        
+    FILE *arq_pessoa;
+    	arq_pessoa = fopen("entrada_pessoa.txt", "r");
+        if(arq_pessoa == NULL){
+            printf("carregando banco de dados\n");
+            arq_pessoa = fopen("entrada_pessoa.txt", "w");
+            fclose(arq_pessoa);
+        }    
+
     while(1){
 		//system("cls || clear");
         menu_principal();
@@ -110,7 +126,7 @@ void jaka(){
         printf("                   |/_  |/_  |   \\                           \n");
         printf("                   || `\\|| `\\|    `----.                    \n");
         printf("                   |\\0_/ \\0_/    --,    \\                  \n");
-        printf(".--MMMMM-.       /              (` \\     `-.                \n");
+        printf(" .--MMMMM-.       /              (` \\     `-.                \n");
         printf("/          \\-----'-.              \\          \\             \n");
         printf("\\  () ()                         /`\\          \\            \n");
         printf("|                         .___.-'   |          \\             \n");
