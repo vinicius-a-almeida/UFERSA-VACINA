@@ -3,7 +3,7 @@
 #include <string.h>
 #include "vacina.h"
 
-
+//teste
 struct vacina{
 
     VacinaNO *prim;
