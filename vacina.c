@@ -70,7 +70,11 @@ Cartao_Vacina *cria_c_v(){
 
 void inserir_vacina(Vacina *v){
     system("cls || clear");
-	
+	FILE *arq = fopen("entrada.txt", "a");
+    if(arq == NULL){
+        printf("erro ao abrir o arquivo\n");
+        exit (1);
+    }
     VacinaNO * novo  = (VacinaNO *) malloc(sizeof(VacinaNO));
     
     printf("digite o nome da vacina: ");
@@ -84,9 +88,11 @@ void inserir_vacina(Vacina *v){
     
     printf("digite a validade da vacina: ");
     scanf(" %s", novo->validade);
-    
+    fprintf(arq, "nome da vacina: %s\tlote da vacina %s\tdata da vacina %s\tvalidade da vacina %s", novo->nome, novo->lote, novo->data, novo->validade);
+    fclose(arq);
     novo->prox = v->prim;
     v->prim = novo;
+    
 }
 
 void retirar_vacina(Vacina *v){
@@ -267,7 +273,7 @@ void editar_vacinas_cadastradas(Vacina *v){
 	       	printf("opcao editar data\n");
             printf("\\// ATENCAO \\//");
             printf("a troca do nome sera irreversivel...\n\n");
-			scanf(" %s", pos->nome);
+			scanf(" %s", pos->data);
             system("cls || clear");
 		}
         

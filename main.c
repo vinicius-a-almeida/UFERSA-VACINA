@@ -18,6 +18,12 @@ int main(void){
 
     while(1){
 		//system("cls || clear");
+		FILE *arq;
+		if(arq = fopen("entrada.txt", "r")){
+			printf("criando banco de dados\n");
+			fclose(arq);
+			fopen("entrada.txt", "w");
+		}
         menu_principal();
 		printf("\nDigite sua opcao: ");
 		scanf("%d", &op);
